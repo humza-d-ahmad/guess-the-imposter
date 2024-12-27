@@ -30,25 +30,23 @@ h1 {
   font-size: 48px;
   color: white; /* White color for the text */
   text-shadow: 2px 2px 4px #8B0000, -2px -2px 4px #8B0000, 2px -2px 4px #8B0000, -2px 2px 4px #8B0000; /* Maroon outline effect */
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-/* General button styling */
 button {
   color: white;
-  padding: 15px 30px;
+  padding: 20px 40px; /* Increased padding to make the button larger */
   border: none;
-  border-radius: 5px;
-  font-size: 18px;
+  border-radius: 8px;
+  font-size: 18px; /* Slightly larger font size */
   cursor: pointer;
   transition: all 0.3s ease; /* Smooth transition for scaling and color changes */
-  margin: 10px auto; /* Adds space between buttons */
-  width: 200px; /* Sets a fixed width for both buttons */
+  margin: 15px auto; /* Adds space between buttons */
+  width: 250px; /* Fixed width to make the button wider */
   display: block; /* Force buttons to display block (stack vertically) */
   text-align: center;
 }
 
-/* "Start" button styles */
 button.start {
   background-color: #8B0000; /* Maroon color for Start button */
 }
@@ -58,7 +56,6 @@ button.start:hover {
   transform: scale(1.1); /* Pop out effect */
 }
 
-/* "Rules" button styles */
 button.rules {
   background-color: #28A745; /* Green color for Rules button */
 }
@@ -78,4 +75,71 @@ p {
   font-size: 16px;
   color: white; /* White text for the disclaimer */
   margin-top: 10px;
+  text-align: center; /* Centering the main body text of the disclaimer */
+  line-height: 1.6; /* Adds spacing between lines for better readability */
+  max-width: 90%; /* Prevents text from stretching too wide */
+  margin-left: auto;
+  margin-right: auto; /* Centers the paragraph block */
+}
+
+/* Disclaimer Popup Styles */
+.disclaimer-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it appears above other content */
+  opacity: 0; /* Initial opacity set to 0 for fade effect */
+  transition: opacity 0.5s ease; /* Transition for fading */
+}
+
+.disclaimer-popup.show {
+  display: flex; /* Make it visible */
+  opacity: 1; /* Fade in when shown */
+}
+
+.disclaimer-content {
+  background-color: #404040;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 80%;
+  text-align: left;
+  color: white;
+  position: relative;
+}
+
+.disclaimer-content h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center; /* Center the title */
+}
+
+.disclaimer-content p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center; /* Center the body text */
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: -5px;
+  right: -95px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0; /* Ensure no additional padding around the button */
+  z-index: 10; /* Ensure it stays above the content */
+}
+
+.close-btn:hover {
+  color: #FF6F61; /* Highlight color on hover */
 }

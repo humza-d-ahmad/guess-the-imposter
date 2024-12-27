@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guess the Imposter</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Imposter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Main heading -->
-    <h1>Guess the Imposter!</h1>
-    
-    <!-- Start button -->
-    <button class="start" onclick="window.location.href='setup.html'">Start</button>
-    
-    <!-- Rules button -->
-    <button class="rules" onclick="window.location.href='rules.html'">Rules</button>
-    
-    <!-- Disclaimer subheading and placeholder text -->
-    <h3>Disclaimer</h3>
-    <p>This is a placeholder for the disclaimer text. Add details about the game and any important information for users here.</p>
-  </div>
 
-  <script src="script.js"></script>
+<!-- Main Container -->
+<div class="container">
+    <h1>Guess the Imposter!</h1>
+    <button class="start">Start</button>
+    <button class="rules" onclick="window.location.href = 'rules.html';">Rules</button>
+</div>
+
+<!-- Disclaimer Popup -->
+<div class="disclaimer-popup" id="disclaimer-popup">
+    <div class="disclaimer-content">
+        <h3>Disclaimer</h3>
+        <p>This is a non-profit, personal project built out of our love for social games like The Chameleon and others. It is an adaptation that aims to provide an accessible and enjoyable online version of the game, while maintaining the core idea and gameplay.</p>
+        <p>This project is not affiliated with, endorsed by, or officially recognized by the publishers of any game, including The Chameleon or any other related games. We do not own the rights to the original games, trademarks, or any associated content. Our goal is simply to share the fun with others and make it easier to play.</p>
+        <p>If you are the publisher or creator of any of the games this project is inspired by, and you would like to collaborate, provide feedback, or address any concerns, please feel free to get in touch. We’d love to work together and further enhance the experience.</p>
+        <button class="close-btn" onclick="closeDisclaimer()">×</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
