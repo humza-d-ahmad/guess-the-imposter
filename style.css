@@ -372,12 +372,22 @@ input:checked + .slider:before {
 
 .game-page button:hover {
   background-color: #218838;
+  transform: scale(1.1);
 }
 
 /* After revealing the card, visually indicate it can't be clicked */
 .game-page .player-card.revealed {
   opacity: 0.5; /* Make the card slightly transparent to indicate it's revealed */
   cursor: not-allowed; /* Change cursor to indicate no further action */
+}
+
+
+/* Styling for the word assigned to non-imposter players */
+.game-page .player-card .word-assigned {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #FFC107;  /* Gold color for the word */
+  font-weight: bold;
 }
 
 

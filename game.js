@@ -16,6 +16,21 @@ document.addEventListener("DOMContentLoaded", function() {
     let imposterIndex = Math.floor(Math.random() * numPlayers);  // Randomly select the imposter
     let isRevealed = false;
 
+    // Predefined list of words (we'll just use "Lebron James" for now)
+    const predefinedWords = ["Lebron James"];
+    let wordList = predefinedWords.slice();  // Start with predefined words
+
+    // Check if custom words are enabled and add them to the word list
+    const customWordsOnly = gameSetup.customWordsOnly || false; // Add this from the game setup
+    if (!customWordsOnly) {
+        // Add custom words if not only using custom words
+        const customWords = gameSetup.customWords || []; // Assume custom words come from setup
+        wordList = wordList.concat(customWords);
+    }
+
+    // Select one random word to be assigned to all non-imposter players
+    const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+
     // Create player cards and append them to the container
     const playerCardsContainer = document.getElementById("playerCardsContainer");
     playerCardsContainer.innerHTML = "";  // Clear any existing content
@@ -24,9 +39,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const card = document.createElement("div");
         card.classList.add("player-card");
         card.setAttribute("data-index", index);
+
         card.innerHTML = `
             <p class="player-name">${player}</p>
             <p class="card-status">Tap to reveal</p>
+            <p class="card-word" style="display:none;">Word: ${randomWord}</p> <!-- Hidden word initially -->
         `;
         playerCardsContainer.appendChild(card);
     });
@@ -37,17 +54,22 @@ document.addEventListener("DOMContentLoaded", function() {
         card.addEventListener("click", function() {
             const playerIndex = parseInt(card.getAttribute("data-index"));
             const cardStatus = card.querySelector(".card-status");
+            const cardWord = card.querySelector(".card-word"); // Get the hidden word element
 
             // If it's already revealed, prevent further changes
             if (cardStatus.textContent !== "Tap to reveal") return;
 
-            // Reveal the player's role
+            // Reveal the player's role first
             if (playerIndex === imposterIndex) {
                 cardStatus.textContent = "You are the imposter, figure out what the word is.";
                 cardStatus.style.color = "#FF6F61";  // Imposter text in red
+                // Imposter should not see a word
+                cardWord.style.display = "none"; // Hide word for imposter
             } else {
                 cardStatus.textContent = "You are not the imposter.";
                 cardStatus.style.color = "#28A745";  // Regular player text in green
+                // Only show the word for regular players
+                cardWord.style.display = "block";  // Make the word visible
             }
 
             isRevealed = true;  // Ensure card is revealed only once
@@ -69,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
             cards.forEach(card => {
                 card.querySelector(".card-status").textContent = "Tap to reveal";
                 card.querySelector(".card-status").style.color = "#666";  // Reset text color
+                card.querySelector(".card-word").style.display = "none"; // Hide word again
             });
 
             // Hide the "Confirm" button until the next player is tapped
@@ -80,41 +103,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
-function assignRoles(players) {
-    const randomImposterIndex = Math.floor(Math.random() * players.length); // Randomly select an imposter
-    const playerCardsContainer = document.getElementById('playerCardsContainer');
-    
-    players.forEach((player, index) => {
-        const card = document.createElement('div');
-        card.classList.add('player-card');
-        
-        // Add 'imposter' class if the player is the imposter
-        if (index === randomImposterIndex) {
-            card.classList.add('imposter');
-            card.innerHTML = `<div class="player-name">${player.name}</div>
-                              <div class="card-status">Tap to reveal your role.</div>`;
-        } else {
-            card.innerHTML = `<div class="player-name">${player.name}</div>
-                              <div class="card-status">Tap to reveal your role.</div>`;
-        }
-
-        // Restrict players from seeing their own role and hide the role until card is clicked
-        card.addEventListener('click', () => {
-            const status = card.querySelector('.card-status');
-            
-            // Prevent players from seeing their own role before they click the card
-            if (index === randomImposterIndex) {
-                status.textContent = "You are the imposter, figure out what the word is.";
-            } else {
-                status.textContent = "You are not the imposter.";
-            }
-            card.classList.add('revealed'); // Add a class indicating that the card has been revealed
-
-            // Disable further clicks after revealing
-            card.style.pointerEvents = "none";
-        });
-        
-        playerCardsContainer.appendChild(card);
-    });
-}
