@@ -314,6 +314,72 @@ input:checked + .slider:before {
   margin-right: 10px; /* Add space between label and the toggle */
 }
 
+/* Change the player card background color and border */
+.game-page .player-card {
+  background-color: #2e3447; /* Light gray background for the card */
+  border: 2px solid #ccc;    /* Light gray border for the card */
+  border-radius: 8px;
+  margin: 15px 0;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Change the player name text color */
+.game-page .player-card .player-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f7f9fc;  /* Dark gray color for the player name */
+  margin-bottom: 10px;
+}
+
+/* Change the color of the card status (revealed message) */
+.game-page .player-card .card-status {
+  font-size: 16px;
+  color: #666;  /* Default color for status text */
+}
+
+/* Imposter card styling (specific color changes for the imposter) */
+.game-page .player-card.imposter {
+  background-color: #ffcccc;  /* Light red background for the imposter card */
+  border: 2px solid #ff6666;  /* Red border for imposter */
+}
+
+/* Imposter player name color (make it stand out) */
+.game-page .player-card.imposter .player-name {
+  color: #d9534f;  /* Red color for the imposter's name */
+}
+
+/* Hover effect for the player card */
+.game-page .player-card:hover {
+  transform: scale(1.05);  /* Slight zoom on hover */
+}
+
+/* Button styling */
+.game-page button {
+  padding: 10px 20px;
+  background-color: #28A745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.game-page button:hover {
+  background-color: #218838;
+}
+
+/* After revealing the card, visually indicate it can't be clicked */
+.game-page .player-card.revealed {
+  opacity: 0.5; /* Make the card slightly transparent to indicate it's revealed */
+  cursor: not-allowed; /* Change cursor to indicate no further action */
+}
+
 
 
 /* Mobile and Tablet */

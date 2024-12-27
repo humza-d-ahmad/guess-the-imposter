@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const playersInput = document.getElementById("players");
     const playerNamesContainer = document.getElementById("playerNamesContainer");
-    const startButton = document.querySelector("button.start");
+    const startButton = document.querySelector("button");
     const form = document.getElementById("setupForm");
     const customWordsInput = document.getElementById("customWords");
     const customWordsOnlyCheckbox = document.getElementById("customWordsOnly");
@@ -9,12 +9,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to generate player name input fields
     function generatePlayerInputs() {
-        // Clear any previously generated player inputs
         playerNamesContainer.innerHTML = "";
-
         const numPlayers = parseInt(playersInput.value);
-
-        // Only create input fields if the number is valid (3-12)
+        
         if (numPlayers >= 3 && numPlayers <= 12) {
             for (let i = 1; i <= numPlayers; i++) {
                 const div = document.createElement("div");
@@ -33,55 +30,40 @@ document.addEventListener("DOMContentLoaded", function() {
                 div.appendChild(input);
                 playerNamesContainer.appendChild(div);
             }
-
-            // Enable the start button only if all player names are entered
             startButton.disabled = false;
         } else {
-            // Disable the start button if the number of players is invalid
             startButton.disabled = true;
         }
     }
 
-    // Function to validate and extract custom words
-    function getCustomWords() {
-        const customWords = customWordsInput.value.trim();
-        if (customWords) {
-            return customWords.split(',').map(word => word.trim()).filter(word => word !== "");
-        }
-        return [];
-    }
+    // Generate player input fields when the number of players changes
+    playersInput.addEventListener("input", generatePlayerInputs);
 
-    // Event listener to generate player inputs on number change
-    playersInput.addEventListener("input", function() {
-        generatePlayerInputs();
-    });
-
-    // Event listener for form submission (optional, prevent default for now)
+    // Store game setup when the form is submitted
     form.addEventListener("submit", function(event) {
         event.preventDefault();
 
-        // Get the number of players
+        // Get values from the form
         const numPlayers = parseInt(playersInput.value);
-
-        // Get player names
-        let playerNames = [];
+        const playerNames = [];
         for (let i = 1; i <= numPlayers; i++) {
             playerNames.push(document.getElementById(`player${i}`).value);
         }
 
-        // Get custom words
-        const customWords = getCustomWords();
-
-        // Determine if custom words should be used
+        const customWords = customWordsInput.value.trim().split(',').map(word => word.trim()).filter(word => word !== "");
         const useCustomWordsOnly = customWordsOnlyCheckbox.checked;
-
-        // Get number of rounds
         const numRounds = parseInt(roundsInput.value);
 
-        // Handle the game setup (this is just a placeholder logic for now)
-        alert(`Game Setup:\nPlayers: ${playerNames.join(', ')}\nCustom Words: ${customWords.join(', ')}\nUse Custom Words Only: ${useCustomWordsOnly}\nRounds: ${numRounds}`);
-    });
+        // Save data to localStorage
+        localStorage.setItem("gameSetup", JSON.stringify({
+            players: playerNames,
+            numPlayers: numPlayers,
+            customWords: customWords,
+            useCustomWordsOnly: useCustomWordsOnly,
+            numRounds: numRounds
+        }));
 
-    // Optional: Prevent form submission for now (no functionality yet)
-    startButton.disabled = true;
+        // Redirect to the game page
+        window.location.href = "game.html";
+    });
 });
