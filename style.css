@@ -1,60 +1,81 @@
 /* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Light gray background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    margin: 0;
-  }
-  
-  .container {
-    text-align: center;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  h1 {
-    font-size: 48px;
-    color: #4CAF50; /* Green color for emphasis */
-    margin-bottom: 20px;
-  }
-  
-  button {
-    background-color: #4CAF50; /* Green background */
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  button:hover {
-    background-color: #45a049; /* Darker green on hover */
-  }
-  
-  h3 {
-    font-size: 22px;
-    margin-top: 30px;
-    color: #333;
-  }
-  
-  p {
-    font-size: 16px;
-    color: #666;
-    margin-top: 10px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2D2D2D; /* Dark grey background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+  color: white; /* Default text color is white */
+}
+
+.container {
+  text-align: center;
+  background-color: #404040; /* Slightly lighter grey for the container */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 48px;
+  color: white; /* White color for the text */
+  text-shadow: 2px 2px 4px #8B0000, -2px -2px 4px #8B0000, 2px -2px 4px #8B0000, -2px 2px 4px #8B0000; /* Maroon outline effect */
+  margin-bottom: 20px;
+}
+
+/* General button styling */
+button {
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for scaling and color changes */
+  margin: 10px auto; /* Adds space between buttons */
+  width: 200px; /* Sets a fixed width for both buttons */
+  display: block; /* Force buttons to display block (stack vertically) */
+  text-align: center;
+}
+
+/* "Start" button styles */
+button.start {
+  background-color: #8B0000; /* Maroon color for Start button */
+}
+
+button.start:hover {
+  background-color: #6B0000; /* Darker maroon on hover */
+  transform: scale(1.1); /* Pop out effect */
+}
+
+/* "Rules" button styles */
+button.rules {
+  background-color: #28A745; /* Green color for Rules button */
+}
+
+button.rules:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.1); /* Pop out effect */
+}
+
+h3 {
+  font-size: 22px;
+  margin-top: 30px;
+  color: white; /* White text for the subheading */
+}
+
+p {
+  font-size: 16px;
+  color: white; /* White text for the disclaimer */
+  margin-top: 10px;
+}
