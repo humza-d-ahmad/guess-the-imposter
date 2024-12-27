@@ -10,11 +10,55 @@ body {
   background-color: #2D2D2D; /* Dark grey background */
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full viewport height */
+  align-items: flex-start; /* Change from center to top alignment */
+  min-height: 100vh; /* Ensure the body takes at least full screen height */
   margin: 0;
   color: white; /* Default text color is white */
+  overflow-y: auto; /* Allow vertical scrolling when content overflows */
 }
+
+/* Title styling with centered underline */
+h1 {
+  font-size: 48px;
+  color: white; /* Solid white color for the text */
+  margin-bottom: 40px;
+  position: relative; /* Necessary to position the underline correctly */
+}
+
+/* Underline styling using the ::after pseudo-element */
+h1::after {
+  content: ""; /* Required to create the element */
+  position: absolute;
+  bottom: -10px; /* Distance from the bottom of the title (adjust as needed) */
+  left: 50%; /* Position the underline starting from the middle */
+  transform: translateX(-50%); /* Shift the underline left by 50% of its width to center it */
+  width: 15%; /* Change this value to control the width of the underline */
+  height: 3px; /* Thickness of the underline */
+  background-color: #5c5e5c; /* Color of the underline (you can change this) */
+}
+
+/* Heading 2 (h2) styling */
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px; /* Add space after h2 */
+  color: white;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 20px; /* Add space after each paragraph */
+  line-height: 1.6; /* Improve readability by adding line height */
+}
+
+
+/* Ordered list and unordered list styling */
+ol, ul {
+  text-align: left;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
 
 .container {
   text-align: center;
@@ -23,66 +67,41 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 600px;
+  max-width: 800px; /* Increased container width for the rules page */
+  box-sizing: border-box;
+  margin-top: 20px; /* Add some margin from the top */
 }
 
+
+/* Title styling - changed to solid white without the glow */
 h1 {
   font-size: 48px;
-  color: white; /* White color for the text */
-  text-shadow: 2px 2px 4px #8B0000, -2px -2px 4px #8B0000, 2px -2px 4px #8B0000, -2px 2px 4px #8B0000; /* Maroon outline effect */
+  color: white; /* Solid white color for the text */
   margin-bottom: 40px;
 }
 
+/* Button styling (same for both Start and Rules) */
 button {
   color: white;
-  padding: 20px 40px; /* Increased padding to make the button larger */
+  padding: 12px 25px; /* Reduced padding to make the button smaller */
   border: none;
   border-radius: 8px;
-  font-size: 18px; /* Slightly larger font size */
+  font-size: 16px; /* Reduced font size */
   cursor: pointer;
   transition: all 0.3s ease; /* Smooth transition for scaling and color changes */
   margin: 15px auto; /* Adds space between buttons */
-  width: 250px; /* Fixed width to make the button wider */
+  width: 200px; /* Fixed width to make the button slightly narrower */
   display: block; /* Force buttons to display block (stack vertically) */
   text-align: center;
+  background-color: #28A745; /* Green color for both Start and Rules buttons */
 }
 
-button.start {
-  background-color: #8B0000; /* Maroon color for Start button */
-}
-
-button.start:hover {
-  background-color: #6B0000; /* Darker maroon on hover */
-  transform: scale(1.1); /* Pop out effect */
-}
-
-button.rules {
-  background-color: #28A745; /* Green color for Rules button */
-}
-
-button.rules:hover {
+button:hover {
   background-color: #218838; /* Darker green on hover */
   transform: scale(1.1); /* Pop out effect */
 }
 
-h3 {
-  font-size: 22px;
-  margin-top: 30px;
-  color: white; /* White text for the subheading */
-}
-
-p {
-  font-size: 16px;
-  color: white; /* White text for the disclaimer */
-  margin-top: 10px;
-  text-align: center; /* Centering the main body text of the disclaimer */
-  line-height: 1.6; /* Adds spacing between lines for better readability */
-  max-width: 90%; /* Prevents text from stretching too wide */
-  margin-left: auto;
-  margin-right: auto; /* Centers the paragraph block */
-}
-
-/* Disclaimer Popup Styles */
+/* Popup for Disclaimer */
 .disclaimer-popup {
   position: fixed;
   top: 0;
@@ -126,7 +145,7 @@ p {
   text-align: center; /* Center the body text */
 }
 
-/* Close button */
+/* Close button in the disclaimer */
 .close-btn {
   position: absolute;
   top: -5px;
@@ -136,102 +155,50 @@ p {
   cursor: pointer;
   background: none;
   border: none;
-  padding: 0; /* Ensure no additional padding around the button */
-  z-index: 10; /* Ensure it stays above the content */
 }
 
 .close-btn:hover {
   color: #FF6F61; /* Highlight color on hover */
+  background: none;
+  transform: none;
 }
 
-/* Responsive Design with Media Queries */
+/* Back Button - for returning to main page */
+.back-btn {
+  background-color: #007BFF; /* Blue for back button */
+}
+
+.back-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
 
 /* Mobile and Tablet */
 @media screen and (max-width: 768px) {
-  h1 {
-    font-size: 36px; /* Smaller font size for mobile */
-    margin-bottom: 30px;
-  }
-
-  button {
-    padding: 15px 30px; /* Smaller padding for buttons */
-    font-size: 16px; /* Smaller font size for mobile */
-    width: 200px; /* Slightly smaller button width */
-  }
-
-  .container {
-    padding: 20px; /* Less padding on mobile */
-    max-width: 90%; /* Allow the container to take up more space on small screens */
-  }
-
-  .disclaimer-content {
-    width: 90%; /* Allow disclaimer content to be more responsive */
-    padding: 15px; /* Slightly smaller padding */
-  }
-
-  .disclaimer-content h3 {
-    font-size: 20px; /* Smaller font size for disclaimer title */
-  }
-
-  .disclaimer-content p {
-    font-size: 14px; /* Smaller font size for disclaimer text */
+  .close-btn {
+    top: 8px; /* Slightly lower on tablet and mobile */
+    right: 8px; /* Slightly inset to avoid corner clipping */
+    font-size: 20px; /* Slightly smaller font size for mobile/tablet */
   }
 }
 
 /* Very Small Mobile (e.g., portrait phones) */
 @media screen and (max-width: 480px) {
-  h1 {
-    font-size: 28px; /* Even smaller font size for very small screens */
-    margin-bottom: 20px;
-  }
-
-  button {
-    padding: 12px 25px; /* Even smaller button padding */
-    font-size: 14px; /* Smaller button text */
-    width: 180px; /* Smaller button width */
-  }
-
-  .container {
-    padding: 15px; /* Even less padding */
-    max-width: 90%; /* Take up almost the full width on mobile */
+  .close-btn {
+    top: 6px; /* Lower for smaller screens */
+    right: 6px; /* Adjust positioning to ensure visibility */
+    font-size: 18px; /* Even smaller for small screens */
   }
 
   .disclaimer-content {
-    width: 90%;
-    padding: 10px;
-  }
-
-  .disclaimer-content h3 {
-    font-size: 18px; /* Smaller heading for the disclaimer */
-  }
-
-  .disclaimer-content p {
-    font-size: 13px; /* Smaller paragraph font */
-  }
-
-  .close-btn {
-    font-size: 20px; /* Smaller close button on mobile */
+    padding: 15px; /* Adjust padding for mobile */
   }
 }
 
 /* Larger screens, i.e., desktops */
 @media screen and (min-width: 1200px) {
-  h1 {
-    font-size: 60px; /* Larger heading for larger screens */
-    margin-bottom: 50px;
-  }
-
-  button {
-    padding: 25px 50px; /* Larger padding on desktop */
-    font-size: 20px; /* Larger button text */
-    width: 300px; /* Larger button width */
-  }
-
-  .container {
-    max-width: 800px; /* Wider container for larger screens */
-  }
-
-  .disclaimer-content {
-    max-width: 800px; /* Max width for disclaimer content */
+  .close-btn {
+    top: -15px; /* Position higher on larger screens */
+    right: -75px; /* Keep the original position for larger screens */
+    font-size: 30px; /* Larger button on desktop */
   }
 }
