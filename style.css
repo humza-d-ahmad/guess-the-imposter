@@ -172,6 +172,150 @@ button:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
 
+/* Input Group */
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border: 2px solid #28A745; /* Green border when focused */
+}
+
+/* Player Name Input Styling */
+.player-name-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 10px; /* Space between input fields */
+}
+
+.player-name-input:focus {
+  outline: none;
+  border: 2px solid #28A745; /* Green border when focused */
+}
+
+/* Button styling for Start Game */
+button.start {
+  background-color: #28A745; /* Green background */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 200px;
+  display: block;
+  text-align: center;
+}
+
+button.start:hover {
+  background-color: #218838;
+  transform: scale(1.1); /* Slight scale on hover */
+}
+
+button.start:disabled {
+  background-color: #999; /* Greyed out button when disabled */
+  cursor: not-allowed;
+}
+
+/* Custom Words Input Styling */
+.input-group input#customWords {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.input-group input#customWords:focus {
+  outline: none;
+  border: 2px solid #28A745; /* Green border when focused */
+}
+
+/* Custom Toggle Switch */
+.toggle-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #28A745;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Adjustments for label alignment */
+.toggle-group label {
+  font-size: 16px;
+  color: white;
+  margin-right: 10px; /* Add space between label and the toggle */
+}
+
+
+
 /* Mobile and Tablet */
 @media screen and (max-width: 768px) {
   .close-btn {
