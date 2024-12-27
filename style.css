@@ -143,3 +143,95 @@ p {
 .close-btn:hover {
   color: #FF6F61; /* Highlight color on hover */
 }
+
+/* Responsive Design with Media Queries */
+
+/* Mobile and Tablet */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 36px; /* Smaller font size for mobile */
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 15px 30px; /* Smaller padding for buttons */
+    font-size: 16px; /* Smaller font size for mobile */
+    width: 200px; /* Slightly smaller button width */
+  }
+
+  .container {
+    padding: 20px; /* Less padding on mobile */
+    max-width: 90%; /* Allow the container to take up more space on small screens */
+  }
+
+  .disclaimer-content {
+    width: 90%; /* Allow disclaimer content to be more responsive */
+    padding: 15px; /* Slightly smaller padding */
+  }
+
+  .disclaimer-content h3 {
+    font-size: 20px; /* Smaller font size for disclaimer title */
+  }
+
+  .disclaimer-content p {
+    font-size: 14px; /* Smaller font size for disclaimer text */
+  }
+}
+
+/* Very Small Mobile (e.g., portrait phones) */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 28px; /* Even smaller font size for very small screens */
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 12px 25px; /* Even smaller button padding */
+    font-size: 14px; /* Smaller button text */
+    width: 180px; /* Smaller button width */
+  }
+
+  .container {
+    padding: 15px; /* Even less padding */
+    max-width: 90%; /* Take up almost the full width on mobile */
+  }
+
+  .disclaimer-content {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .disclaimer-content h3 {
+    font-size: 18px; /* Smaller heading for the disclaimer */
+  }
+
+  .disclaimer-content p {
+    font-size: 13px; /* Smaller paragraph font */
+  }
+
+  .close-btn {
+    font-size: 20px; /* Smaller close button on mobile */
+  }
+}
+
+/* Larger screens, i.e., desktops */
+@media screen and (min-width: 1200px) {
+  h1 {
+    font-size: 60px; /* Larger heading for larger screens */
+    margin-bottom: 50px;
+  }
+
+  button {
+    padding: 25px 50px; /* Larger padding on desktop */
+    font-size: 20px; /* Larger button text */
+    width: 300px; /* Larger button width */
+  }
+
+  .container {
+    max-width: 800px; /* Wider container for larger screens */
+  }
+
+  .disclaimer-content {
+    max-width: 800px; /* Max width for disclaimer content */
+  }
+}
