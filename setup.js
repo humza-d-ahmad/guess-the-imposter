@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("setupForm");
     const customWordsInput = document.getElementById("customWords");
     const customWordsOnlyCheckbox = document.getElementById("customWordsOnly");
+    const roundsInput = document.getElementById("rounds");
 
     // Function to generate player name input fields
     function generatePlayerInputs() {
@@ -74,8 +75,11 @@ document.addEventListener("DOMContentLoaded", function() {
         // Determine if custom words should be used
         const useCustomWordsOnly = customWordsOnlyCheckbox.checked;
 
+        // Get number of rounds
+        const numRounds = parseInt(roundsInput.value);
+
         // Handle the game setup (this is just a placeholder logic for now)
-        alert(`Game Setup:\nPlayers: ${playerNames.join(', ')}\nCustom Words: ${customWords.join(', ')}\nUse Custom Words Only: ${useCustomWordsOnly}`);
+        alert(`Game Setup:\nPlayers: ${playerNames.join(', ')}\nCustom Words: ${customWords.join(', ')}\nUse Custom Words Only: ${useCustomWordsOnly}\nRounds: ${numRounds}`);
     });
 
     // Optional: Prevent form submission for now (no functionality yet)
