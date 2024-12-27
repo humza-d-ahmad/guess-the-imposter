@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round - Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="round-page">
+
+    <div class="container">
+        <h1>Play Out the Rounds</h1>
+
+        <p>Total Rounds: <span id="totalRounds"></span></p>
+        <p>Current Round: <span id="currentRound">1</span></p>
+
+        <!-- Round controls (Increment and Decrement buttons) -->
+        <div class="round-controls">
+            <button id="incrementRound">Next Round</button>
+            <button id="decrementRound">Previous Round</button>
+        </div>
+
+        <!-- Round action buttons (Restart and Return) -->
+        <div class="action-buttons">
+            <button id="restartButton">Restart Game</button>
+            <button id="returnToSettingsButton">Return to Settings</button>
+        </div>
+    </div>
+
+    <script src="round.js"></script> <!-- External JS to handle round logic -->
+</body>
+</html>

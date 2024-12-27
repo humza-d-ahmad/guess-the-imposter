@@ -97,9 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Hide the "Confirm" button until the next player is tapped
             this.style.display = "none";
         } else {
-            // End of game, can transition to the next phase
-            alert("All roles have been assigned!");
-            // Optionally, redirect or start the game phase
+            window.location.href = "round.html";
         }
     });
 });
