@@ -18,14 +18,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Predefined list of words (we'll just use "Lebron James" for now)
     const predefinedWords = ["Lebron James"];
-    let wordList = predefinedWords.slice();  // Start with predefined words
+    let wordList = [];
 
     // Check if custom words are enabled and add them to the word list
-    const customWordsOnly = gameSetup.customWordsOnly || false; // Add this from the game setup
-    if (!customWordsOnly) {
-        // Add custom words if not only using custom words
+    const customWordsOnly = gameSetup.useCustomWordsOnly || false; // Add this from the game setup
+
+    if (customWordsOnly) {
+        // If only custom words are allowed, use the custom words only
+        wordList = gameSetup.customWords || [];
+    } else {
+        // Add both predefined and custom words if not only using custom words
         const customWords = gameSetup.customWords || []; // Assume custom words come from setup
-        wordList = wordList.concat(customWords);
+        wordList = predefinedWords.concat(customWords); // Merge the predefined and custom words
     }
 
     // Select one random word to be assigned to all non-imposter players
