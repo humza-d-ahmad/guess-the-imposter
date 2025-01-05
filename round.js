@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // If no value is found, default to 10
     if (!totalRounds) {
-        totalRounds = 10;
+        totalRounds = 5;
     }
     let currentRound = 1;   // Start at round 1
 
