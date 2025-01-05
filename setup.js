@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("setupForm");
     const customWordsInput = document.getElementById("customWords");
     const customWordsOnlyCheckbox = document.getElementById("customWordsOnly");
-    const roundsInput = document.getElementById("rounds");
+    // const roundsInput = document.getElementById("rounds");
 
     // Function to generate player name input fields
     function generatePlayerInputs() {
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const customWords = customWordsInput.value.trim().split(',').map(word => word.trim()).filter(word => word !== "");
         const useCustomWordsOnly = customWordsOnlyCheckbox.checked;
-        const numRounds = parseInt(roundsInput.value);
+        // const numRounds = parseInt(roundsInput.value);
 
         // Save data to localStorage
         localStorage.setItem("gameSetup", JSON.stringify({
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
             numPlayers: numPlayers,
             customWords: customWords,
             useCustomWordsOnly: useCustomWordsOnly,
-            numRounds: numRounds
+            // numRounds: numRounds
         }));
 
         // Redirect to the game page
