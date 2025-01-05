@@ -2,7 +2,7 @@
 
 ## Live Version
 
-For an easy, live experience of the game, check out the [Guess the Imposter Website](https://humza-d-ahmad.github.io/guess-the-imposter/index.html)
+For the live version of the game, check out the [Guess the Imposter Website](https://humza-d-ahmad.github.io/guess-the-imposter/index.html)
 
 ## Overview
 
