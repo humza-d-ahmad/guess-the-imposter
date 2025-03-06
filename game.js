@@ -17,7 +17,16 @@ document.addEventListener("DOMContentLoaded", function() {
     let isRevealed = false;
 
     // Predefined list of words (we'll just use "Lebron James" for now)
-    const predefinedWords = ["Lebron James"];
+    const predefinedWords = ["Lebron James","Batman","Paris","Einstein","Mount Everest","Mona Lisa","Sherlock Holmes","New York","Tesla","The Beatles","Great Wall of China",
+"Superman","London","Mozart","Eiffel Tower","Harry Potter","Amazon Rainforest","Shakespeare","Colosseum","Elon Musk","Statue of Liberty",
+"Da Vinci","Taj Mahal","Godzilla","Big Ben","Michael Jordan","Grand Canyon","Cleopatra","Sydney Opera House","Gandhi","Great Pyramid of Giza",
+"Frida Kahlo","Cristiano Ronaldo","Himalayas","King Arthur","Steve Jobs","Hollywood","Marilyn Monroe","Burj Khalifa","Napoleon","Disneyland",
+"Versailles","Alexander the Great","Tower of London","Coca-Cola","Julius Caesar","Machu Picchu","Van Gogh","Stonehenge","Madonna","Tolkien",
+"Serena Williams","Mount Kilimanjaro","Usain Bolt","Bigfoot","Golden Gate Bridge","Walt Disney","Vatican City","Iron Man","Daenerys Targaryen","Sistine Chapel",
+"Plato","Notre Dame","Thor","Hannibal","Pablo Picasso","Christ the Redeemer","Mozart","Liberty Bell","Hercules","Times Square",
+"Star Wars","Picasso","The Colosseum","Dracula","The White House","Loch Ness Monster","Oprah Winfrey","Easter Island","Stephen Hawking","Pyramids of Egypt",
+"Nikola Tesla","Mickey Mouse","The Leaning Tower of Pisa","Winston Churchill","Big Bang Theory","The Louvre","Robin Hood","Chichen Itza","Titanic","Edison",
+"Mark Twain","The Amazon River","Cleopatra","Statue of Zeus","Socrates","Berlin Wall","The Sphinx","James Bond","Mount Rushmore","Nelson Mandela"];
     let wordList = [];
 
     // Check if custom words are enabled and add them to the word list
